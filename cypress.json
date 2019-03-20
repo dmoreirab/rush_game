@@ -1,4 +1,5 @@
 {
   "projectId": "6wzwau",
   "chromeWebSecurity": false,
+  "baseUrl": "https://buzz-dev.mindera.com/rush"
 }
