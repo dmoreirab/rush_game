@@ -1,5 +1,6 @@
 {
   "projectId": "6wzwau",
   "chromeWebSecurity": false,
-  "baseUrl": "https://buzz-dev.mindera.com/rush"
+  "baseUrl": "https://buzz-dev.mindera.com/",
+  "defaultCommandTimeout": 16000
 }

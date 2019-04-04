@@ -15,7 +15,16 @@ const CommonObjects = function ()  {
     this.placeBetTimerText = '[data-test="place-bet-delay-text"]';
     this.nextRoundTimer = '[data-test="next-round-timer"]';
     this.nextRoundTimerText = '[data-test="next-round-text"]';
-
+    this.betTab = '[data-test="bet-tab"]';
+    this.playersTab = '[data-test="players-tab"]';
+    this.historyTab = '[data-test="history-tab"]';
+    this.betTabContainer = '[data-test="tab-content-container"]';
+    this.tabsContainer = '#root > main > section.sc-cSHVUG.hDUXUW > section.sc-kAzzGY.kdCQTQ > nav';
+    this.multiplier = '[data-test="bet-return"]';
+    this.cashedOutInfo = '[data-test="cashed-out-info"]';
+    this.cashedOutReturn = '[data-test="cashed-out-return"]';
+    this.cashedOutMultiplier = '[data-test="cashed-out-multiplier"]';
+    this.winToast = '[data-test="cashed-out-toast"]';
 };
 
 module.exports = CommonObjects;

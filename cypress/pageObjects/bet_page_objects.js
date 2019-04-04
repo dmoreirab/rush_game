@@ -10,8 +10,14 @@ const BetObjects = function() {
     this.stake = '[data-test=stake-value]';
     this.chipsContainer = '[data-test="chips-container"] li';
     this.betPausedContainer = '[data-test="bet-suspend"]';
-    this.betPausedUpperText = '#root > main > section.sc-fjdhpX.fCEyoV > section.sc-jzJRlG.krDPzq > div > div > div.sc-jDwBTQ.hhVIim.sc-iwsKbI.iuaTZF > p.sc-bwzfXH.kUufAs';
-    this.betPausedBottomText = '#root > main > section.sc-fjdhpX.fCEyoV > section.sc-jzJRlG.krDPzq > div > div > div.sc-jDwBTQ.hhVIim.sc-iwsKbI.iuaTZF > p.sc-bwzfXH.fwDhTb';
+    this.betPausedUpperText = '[data-test="bet-suspend-title"]';
+    this.betPausedBottomText = '[data-test="bet-suspend-description"]';
+    this.cashOutBtn = '[data-test="cashout-button"]';
+    this.betSummary = '[data-test="bet-summary"]';
+    this.betSummaryStake = '[data-test="bet-summary-stake"]';
+    this.betSummaryStakeAmount = '[data-test="bet-summary-stake-amount"]';
+    this.betSummaryLastStake = '[data-test="bet-summary-last-game"]';
+    
 };
 
 module.exports = BetObjects;
