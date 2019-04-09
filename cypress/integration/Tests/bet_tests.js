@@ -25,7 +25,7 @@ before(() => {
 */
 
 beforeEach(() => {
-  cy.visit('/rush/game?token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImE0MzEzZTdmZDFlOWUyYTRkZWQzYjI5MmQyYTdmNGU1MTk1NzQzMDgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQyMjA1NDU5MDEtbnFqa3BwdGtyMW1wMmU1Mmg2aWdmYzJjZXBoN203czAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NDIyMDU0NTkwMS1ucWprcHB0a3IxbXAyZTUyaDZpZ2ZjMmNlcGg3bTdzMC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMDgxNTg5NzQ2OTA0MDc5MDI1OSIsImhkIjoibWluZGVyYS5jb20iLCJlbWFpbCI6ImRhbmlsby5iYXJib3NhQG1pbmRlcmEuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiIyT3NDZUQ0ZllyTGtoSWxiX0dpRnp3IiwibmFtZSI6IkRhbmlsbyBCYXJib3NhIiwicGljdHVyZSI6Imh0dHBzOi8vbGg2Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tLTFlTGZsbTk3OFkvQUFBQUFBQUFBQUkvQUFBQUFBQUFBQUEvQUNIaTNyZjlMYlFqMW5oaU5fM05yWXNPYmREWm9DNkp1Zy9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiRGFuaWxvIiwiZmFtaWx5X25hbWUiOiJCYXJib3NhIiwibG9jYWxlIjoiZW4tR0IiLCJpYXQiOjE1NTQzNjQ3MjcsImV4cCI6MTU1NDM2ODMyNywianRpIjoiZTVhMTA5YWRhODg5MDRjZjY1MGUyZTcwNzI5OThmNmUzNTgzZjc4YyJ9.LSvYuJZbJLLL4n79sYbDdzhIoLMAmOGpWF_vJiGriiiFmD-5bY0_iZs3ECINO3PZDMOhrpIjutzF5_DtCFIEIiG-S-PdiANLJmic2V2csgJoTPnDLOAcqG_20_plkoaygxAj9kINlYFd0Gnw6W5V9ewmXuobarWvATHy_IrdWjyBospB86qTKhKEalfv3DCxLoRKrtOcPCdlWMhx50QN_j8kLgEIP1fJEs2Nwd1B8L1P4TkD1d29GMIUdgySHGBry72ZhsqDWx7hT1wdBvsFN5Mad330OYMebY-LBfeTSES0Q-7O4umBpcDVoKy5ArkAh2xvPyINdOkesStMQHkqHQ&currency=EUR&language=')
+  cy.visit('/rush/game?token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmNjc4MWJhNzExOTlhNjU4ZTc2MGFhNWFhOTNlNWZjM2RjNzUyYjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODQyMjA1NDU5MDEtbnFqa3BwdGtyMW1wMmU1Mmg2aWdmYzJjZXBoN203czAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4NDIyMDU0NTkwMS1ucWprcHB0a3IxbXAyZTUyaDZpZ2ZjMmNlcGg3bTdzMC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMDgxNTg5NzQ2OTA0MDc5MDI1OSIsImhkIjoibWluZGVyYS5jb20iLCJlbWFpbCI6ImRhbmlsby5iYXJib3NhQG1pbmRlcmEuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJiQlVwSnctTFR2U0dwdUswVHVkUlNnIiwibmFtZSI6IkRhbmlsbyBCYXJib3NhIiwicGljdHVyZSI6Imh0dHBzOi8vbGg2Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tLTFlTGZsbTk3OFkvQUFBQUFBQUFBQUkvQUFBQUFBQUFBQUEvQUNIaTNyZjlMYlFqMW5oaU5fM05yWXNPYmREWm9DNkp1Zy9zOTYtYy9waG90by5qcGciLCJnaXZlbl9uYW1lIjoiRGFuaWxvIiwiZmFtaWx5X25hbWUiOiJCYXJib3NhIiwibG9jYWxlIjoiZW4tR0IiLCJpYXQiOjE1NTQ4MDMyMTUsImV4cCI6MTU1NDgwNjgxNSwianRpIjoiYTA4NzA3NTc5NGQxM2YyNjg0ODdmOWZjM2M0MzQyNjVlOGFjNDcwNCJ9.aJ8L_z14vguBLewPnWEun9wmd2PlubnTkqzXjlhltbFx6jCd-ssew_q9-eRIWOLBQtq83Bez6lApHEcpjME_AoRnQUAlHJH9jZlHvkw6lDHahx9lQroZfjZjyst2H1SCCZp4s-WFbmzDETYiKMXz9S43hv8xPgFy6MDth_aHR-tsNxHUnzIrU6MbYqjIwJMglBvXK88BWHHf-hUQnxBgJo6uO8N9daRkfzWYjfIr63Gm_qRQHitAZacrC-YxiEN-YdatNaGNq4Sbpdj0WcO9mPqrcRQpDBFQlcvJvD7u5V_OGhy4So6LcCHJEXINM3hGGn2f7GauQ71b7027RxGENg&currency=EUR&language=')
 })
 
 //Functions
@@ -65,6 +65,16 @@ let addAllTokens = () => {
 let waitUntilUserCanBet = () => {
   cy
   .get(commonObjects.placeBetTimerText, { timeout: 120000 })
+  
+}
+
+let waitUntilUserCanBetOnNewRound = () => {
+  cy
+  .get(commonObjects.placeBetTimerText, { timeout: 120000 })
+  .get(commonObjects.nextRoundTimerText)
+  .should('not.exist')
+  .get(commonObjects.nextRoundTimerText, { timeout: 120000 })
+  .get(commonObjects.placeBetTimerText, { timeout: 120000 })
 }
 
 let tryToPlaceBet = () => {
@@ -92,6 +102,17 @@ let betAndConfirm = () => {
   tryToPlaceBet()
 }
 
+let placeOverMaximumLimitBet = () => {
+  addAllTokens()
+  addAllTokens()
+  addAllTokens()
+  addAllTokens()
+  addAllTokens()
+  addAllTokens()
+  addAllTokens()
+  tryToPlaceBet()
+}
+
 //Proper Tests
 describe('Testing Bets', () => {
   xit('should start the game in the bet tab', () => {
@@ -99,7 +120,7 @@ describe('Testing Bets', () => {
   })
 
   it('should have the confirm button disabled if stake is 0', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(betObjects.stake)
     .should('have.text', '€0,00')
@@ -111,7 +132,7 @@ describe('Testing Bets', () => {
   })
 
   it('should place a simple bet', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(betObjects.tokenOne)
     .click()
@@ -126,7 +147,7 @@ describe('Testing Bets', () => {
   })
 
   it('should clear a bet and verify that the confirm button is disabled', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(betObjects.tokenFive)
     .click()
@@ -146,7 +167,7 @@ describe('Testing Bets', () => {
   })
 
   it('should add a token of every value to the stake', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     addAllTokens()
     cy
     .get(betObjects.stake)
@@ -159,7 +180,7 @@ describe('Testing Bets', () => {
   })
 
   it('should return the stake to a previous state', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     addAllTokens()
     cy
     .get(betObjects.stake)
@@ -186,14 +207,14 @@ describe('Testing Bets', () => {
     .get(betObjects.stake)
     .should('have.text', '€344,00')
 
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     tryToPlaceBet()
 
     betConfirmation()
   })
 
   it('should bust the game without placing bets and check elements', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(commonObjects.busted)
     .should('have.text', 'Bust')
@@ -221,7 +242,7 @@ describe('Testing Bets', () => {
   })
 
   it('should display timer for new bets when the game busts', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(commonObjects.placeBetTimerText)
     .should('be.visible')
@@ -232,11 +253,11 @@ describe('Testing Bets', () => {
   })
 
   it('should display timer when the game is about to start', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     cy
     .get(commonObjects.nextRoundTimerText, { timeout: 120000 })
     .should('be.visible')
-    .contains('Next Round Starts in:')
+    .contains('Next round starts in:')
   })
 
   it('should not display counters when the game is running', () => {
@@ -249,8 +270,9 @@ describe('Testing Bets', () => {
     .should('not.exist')
   })
 
+  //#TODO: Fix after the disabled attribute is added to the element
   xit('should not display the bet tab when a bet was placed and the game is running', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     betAndConfirm()
 
     cy
@@ -268,7 +290,7 @@ describe('Testing Bets', () => {
   })
   
   it('should cash out the bet and verify winning elements', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     betAndConfirm()
 
     gameStarted()
@@ -285,7 +307,7 @@ describe('Testing Bets', () => {
   })
 
   it('should display the multiplier when the player bets and the game starts ', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     betAndConfirm()
 
     gameStarted()
@@ -297,7 +319,7 @@ describe('Testing Bets', () => {
   })
 
   it('should display current stake and last game bets after betting', () => {
-    waitUntilUserCanBet()
+    waitUntilUserCanBetOnNewRound()
     betAndConfirm()
 
     gameStarted()
@@ -305,9 +327,104 @@ describe('Testing Bets', () => {
     .get(betObjects.betSummary)
     .should('be.visible')
     .get(betObjects.betSummaryStake)
-    .should('have.text', 'Stake: €86,00')
+    .contains('€86,00')
     .get(betObjects.betSummaryLastStake)
     .should('be.visible')
+    //#TODO: Implement last bet when feature is out.
+  })
+
+  it('should not let the user place two bets in the same round', () => {
+    waitUntilUserCanBetOnNewRound()
+    betAndConfirm()
+
+    cy
+    .get(commonObjects.confirmingBetScreen)
+    .should('not.be.visible')
+
+    cy
+    .reload()
+    betAndConfirm()
+
+    cy
+    .get(commonObjects.confirmingBetScreen)
+    .should('not.be.visible')
+    .get(commonObjects.errorWrapper)
+    .should('be.visible')
+    .get(commonObjects.errorIcon)
+    .should('be.visible')
+    .get(commonObjects.errorTitle)
+    .should('have.text', 'Betslip Error')
+    .get(commonObjects.errorDescription)
+    .should('have.text', 'Bet already exists for current round')
+    .get(commonObjects.errorCloseButton)
+    .click()
+    
+    .get(commonObjects.errorWrapper)
+    .should('not.exist')
+    .get(commonObjects.errorIcon)
+    .should('not.exist')
+    .get(commonObjects.errorTitle)
+    .should('not.exist')
+    .get(commonObjects.errorDescription)
+    .should('not.exist')
+
+  })
+
+  it('should not let the user bet less than the minimum bet', () => {
+    waitUntilUserCanBetOnNewRound()
+    
+    cy
+    .get(betObjects.tokenOne)
+    .click()
+    tryToPlaceBet()
+
+    cy
+    .get(commonObjects.errorWrapper)
+    .should('be.visible')
+    .get(commonObjects.errorIcon)
+    .should('be.visible')
+    .get(commonObjects.errorTitle)
+    .should('have.text', 'Betslip Error')
+    .get(commonObjects.errorDescription)
+    .should('have.text', 'Invalid stake')
+    .get(commonObjects.errorCloseButton)
+    .click()
+    
+    .get(commonObjects.errorWrapper)
+    .should('not.exist')
+    .get(commonObjects.errorIcon)
+    .should('not.exist')
+    .get(commonObjects.errorTitle)
+    .should('not.exist')
+    .get(commonObjects.errorDescription)
+    .should('not.exist')
+
+  })
+
+  it('should not let the user bet more than the maximum bet', () => {
+    waitUntilUserCanBetOnNewRound()
+    placeOverMaximumLimitBet()
+
+    cy
+    .get(commonObjects.errorWrapper)
+    .should('be.visible')
+    .get(commonObjects.errorIcon)
+    .should('be.visible')
+    .get(commonObjects.errorTitle)
+    .should('have.text', 'Betslip Error')
+    .get(commonObjects.errorDescription)
+    .should('have.text', 'Invalid stake')
+    .get(commonObjects.errorCloseButton)
+    .click()
+    
+    .get(commonObjects.errorWrapper)
+    .should('not.exist')
+    .get(commonObjects.errorIcon)
+    .should('not.exist')
+    .get(commonObjects.errorTitle)
+    .should('not.exist')
+    .get(commonObjects.errorDescription)
+    .should('not.exist')
   })
 })
 

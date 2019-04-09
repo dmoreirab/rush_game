@@ -25,6 +25,12 @@ const CommonObjects = function ()  {
     this.cashedOutReturn = '[data-test="cashed-out-return"]';
     this.cashedOutMultiplier = '[data-test="cashed-out-multiplier"]';
     this.winToast = '[data-test="cashed-out-toast"]';
+    this.errorWrapper = '[data-test="bet-error-wrapper"]';
+    this.errorIcon = '[data-test="error-alert-icon"]';
+    this.errorTitle = '[data-test="error-alert-title"]';
+    this.errorDescription = '[data-test="error-alert-description"]';
+    this.errorCloseButton = '[data-test="error-alert-close-button"]';
+
 };
 
 module.exports = CommonObjects;
