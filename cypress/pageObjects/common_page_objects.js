@@ -1,4 +1,6 @@
 const CommonObjects = function ()  {
+    this.howToPlayButton = '[data-test=onboarding-intro-start-button]';
+    this.howToPlaySkipButton = '[data-test=onboarding-skip-button]';
     this.busted = '[data-test="bust-text"]';
     this.betConfirmingSpinnerText = '[data-test="bet-confirming-container"]';
     this.gameScreen = '[data-test="game-container"]';
@@ -19,18 +21,26 @@ const CommonObjects = function ()  {
     this.playersTab = '[data-test="players-tab"]';
     this.historyTab = '[data-test="history-tab"]';
     this.betTabContainer = '[data-test="tab-content-container"]';
-    this.tabsContainer = '#root > main > section.sc-cSHVUG.hDUXUW > section.sc-kAzzGY.kdCQTQ > nav';
+    this.historyTabContainer = '[data-test="game-history-table"]';
+    this.playersTabContainer = '[data-test="live-bets-table"]';
+    this.historyTable = ['data-test="game-history-table-body"'];
+    this.tabsContainer = '[data-test="tab-content-container"]';
     this.multiplier = '[data-test="bet-return"]';
     this.cashedOutInfo = '[data-test="cashed-out-info"]';
     this.cashedOutReturn = '[data-test="cashed-out-return"]';
     this.cashedOutMultiplier = '[data-test="cashed-out-multiplier"]';
     this.winToast = '[data-test="cashed-out-toast"]';
+    this.toastLeftArrow = '[data-test="cashed-out-toast-left-arrows"]';
+    this.toastRightArrow = '[data-test="cashed-out-toast-right-arrows"]';
+    this.toastText = '[data-test="cashed-out-toast-message"]';
     this.errorWrapper = '[data-test="bet-error-wrapper"]';
     this.errorIcon = '[data-test="error-alert-icon"]';
     this.errorTitle = '[data-test="error-alert-title"]';
     this.errorDescription = '[data-test="error-alert-description"]';
     this.errorCloseButton = '[data-test="error-alert-close-button"]';
-
+    this.bustValue = '[data-test="multiplier"]:first';
+    this.historyOne = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > table > tbody > tr:nth-child(1) > td:nth-child(1) > p';
+    this.historyFirstStake = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > table > tbody > tr:nth-child(1) > td:nth-child(3)';    
 };
 
 module.exports = CommonObjects;

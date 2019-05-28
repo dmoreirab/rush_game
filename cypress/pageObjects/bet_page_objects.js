@@ -17,7 +17,11 @@ const BetObjects = function() {
     this.betSummaryStake = '[data-test="bet-summary-stake"]';
     this.betSummaryStakeAmount = '[data-test="bet-summary-stake-amount"]';
     this.betSummaryLastStake = '[data-test="bet-summary-last-game"]';
-    
+    this.autoCashoutMultiplier = '[data-test="auto-cash-out-multiplier"]';
+    this.autoCashoutToggleInactive = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-iuJeZd.drSwxl > label > span.sc-gipzik.fRZLii';
+    this.autoCashoutToggleActive = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-iuJeZd.drSwxl > label';
+    this.autobetRoundsDisplay = '[data-test="auto-bet-rounds-display"]';
+    this.autoBetToggle = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-lkqHmb.iqtWYj > label > span.sc-jlyJG.kSmkRR';
 };
 
 module.exports = BetObjects;
