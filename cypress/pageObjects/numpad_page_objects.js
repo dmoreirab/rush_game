@@ -8,6 +8,7 @@ const NumpadObjects = function() {
     this.confirmButtonNumpad = '[data-test="auto-cash-out-modal-confirm-button"]';
     this.closeButtonNumpad = '[data-test="auto-cash-out-modal-close-button"]';
     this.multiplier = '[data-test="auto-cash-out-modal-multiplier"]';
+    this.numPadZero = '[data-test="num-pad-0"]';
 };
 
 module.exports = NumpadObjects;

@@ -17,11 +17,18 @@ const BetObjects = function() {
     this.betSummaryStake = '[data-test="bet-summary-stake"]';
     this.betSummaryStakeAmount = '[data-test="bet-summary-stake-amount"]';
     this.betSummaryLastStake = '[data-test="bet-summary-last-game"]';
-    this.autoCashoutMultiplier = '[data-test="auto-cash-out-multiplier"]';
-    this.autoCashoutToggleInactive = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-iuJeZd.drSwxl > label > span.sc-gipzik.fRZLii';
-    this.autoCashoutToggleActive = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-iuJeZd.drSwxl > label';
-    this.autobetRoundsDisplay = '[data-test="auto-bet-rounds-display"]';
-    this.autoBetToggle = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > div > section.sc-lkqHmb.iqtWYj > label > span.sc-jlyJG.kSmkRR';
+    this.autoCashoutMultiplierInactive = '[data-test="auto-cash-out-multiplier"]';
+    this.autoCashoutMultiplierActive = '[data-test="auto-cash-out-multiplier-active"]';
+    this.autoCashoutToggleInactive = '[data-test="auto-cash-out-toggle-switch"]';
+    this.autoCashoutToggleActive = '[data-test="auto-cash-out-toggle-switch-active"]';
+    this.autoCachoutTitleActive = '[data-test="auto-cash-out-title-active"]';
+    this.autoCachoutTitleInactive = '[data-test="auto-cash-out-title"]';
+    this.autobetRoundsDisplay = '[data-test="auto-bet-rounds-display-active"]';
+    this.autobetRoundsSelect = '[data-test="auto-bet-rounds-select"]';
+    this.autoBetToggleInactive = '[data-test="auto-bet-toggle-switch"]';
+    this.autoBetToggleActive = '[data-test="auto-bet-toggle-switch-active"]';
+    this.autobetTitleActive = '[data-test="auto-bet-title-active"]';
+    
 };
 
 module.exports = BetObjects;

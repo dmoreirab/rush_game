@@ -15,6 +15,7 @@ const CommonObjects = function ()  {
     this.betAcceptedIcon = '[data-test="bet-accepted-icon"]';
     this.placeBetTimer = '[data-test="place-bet-timer"]';
     this.placeBetTimerText = '[data-test="place-bet-delay-text"]';
+    this.autobetTimerText = '[data-test="auto-bet-delay-text"]';
     this.nextRoundTimer = '[data-test="next-round-timer"]';
     this.nextRoundTimerText = '[data-test="next-round-text"]';
     this.betTab = '[data-test="bet-tab"]';
@@ -39,8 +40,17 @@ const CommonObjects = function ()  {
     this.errorDescription = '[data-test="error-alert-description"]';
     this.errorCloseButton = '[data-test="error-alert-close-button"]';
     this.bustValue = '[data-test="multiplier"]:first';
-    this.historyOne = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > table > tbody > tr:nth-child(1) > td:nth-child(1) > p';
+    this.historyOne = '[data-test="game-history-table-body"] tr td';
     this.historyFirstStake = '#root > main > section.sc-dqBHgY.kmpGTI > section.sc-gxMtzJ.fPKxfA > div > table > tbody > tr:nth-child(1) > td:nth-child(3)';    
+    this.autoCashoutGameValue = '[data-test="auto-cashout-status-value"]';
+    this.autoBetGameValue = '[data-test="auto-bet-status-count"]';
+    this.lastGameItemList = '[data-test="last-games-list"] li';
+    this.balanceAmount = '[data-test="balance-amount"]';
+    this.balanceTitle = '[data-test="balance-title"]';
+    this.betValue = '[data-test="bet-amount"]';
+    this.betTitle = '[data-test="bet-title"]';
+    this.lastWinTitle = '[data-test="last-win-title"]';
+    this.lastWinValue = '[data-test="last-win-amount"]';
 };
 
 module.exports = CommonObjects;
