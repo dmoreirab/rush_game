@@ -25,7 +25,7 @@ const CommonObjects = function ()  {
     this.historyTabContainer = '[data-test="game-history-table"]';
     this.playersTabContainer = '[data-test="live-bets-table"]';
     this.historyTable = ['data-test="game-history-table-body"'];
-    this.tabsContainer = '[data-test="tab-content-container"]';
+    this.tabsContainer = '[data-test="tab-main-container"]';
     this.multiplier = '[data-test="bet-return"]';
     this.cashedOutInfo = '[data-test="cashed-out-info"]';
     this.cashedOutReturn = '[data-test="cashed-out-return"]';
@@ -51,6 +51,15 @@ const CommonObjects = function ()  {
     this.betTitle = '[data-test="bet-title"]';
     this.lastWinTitle = '[data-test="last-win-title"]';
     this.lastWinValue = '[data-test="last-win-amount"]';
+    this.rulesInfo = '[data-test="rules-and-info-icon"]';
+    this.rulesInfoWrapper = '[data-test="rules-and-info-wrapper"]';
+    this.rulesInfoWrapperCloseBtn = '[data-test="rules-and-info-close-button"]';
+    this.rulesBtn = '[data-test="how-to-play-icon"]';
+    this.faqBtn = '[data-test="faq-icon"]';
+    this.faqWrapper = '[data-test="faq-wrapper"]';
+    this.faqCloseBtn = '[data-test="faq-close-button"]';
+    this.howToPlayBtn = '[data-test="how-to-play-icon"]';
+
 };
 
 module.exports = CommonObjects;

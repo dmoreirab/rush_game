@@ -1,18 +1,16 @@
 //Requiring PageObjects
 const BetObjects = require ('../../pageObjects/bet_page_objects');
 const CommonObjects = require('../../pageObjects/common_page_objects');
-const NumpadObjects = require('../../pageObjects/numpad_page_objects');
 
 //Instantiate PageObjects
 var betObjects = new BetObjects();
 var commonObjects = new CommonObjects();
-var numpadObjects = new NumpadObjects();
 
 beforeEach(() => {
   cy.clearCookies() 
   cy.clearLocalStorage() 
-  cy.viewport('iphone-5')
-  cy.visit('rush/?token=uVLReTuvKKpkH10WeYPOG3XdB3fvucVQi8LmWRtwWtObWKKs11KwnLPJfRDeXEeLocIzUHSX9D4ZcgpRBqaAmw6H0RJpnyttpC1lgO599wsDUph5tneh5ahJsLRYp2Vs&currency=EUR&language=en-GB') 
+  cy.viewport(1280, 720)
+  cy.visit('/rush/?token=uVLReTuvKKpkH10WeYPOG3XdB3fvucVQi8LmWRtwWtObWKKs11KwnLPJfRDeXEeLocIzUHSX9D4ZcgpRBqaAmw6H0RJpnyttpC1lgO599wsDUph5tneh5ahJsLRYp2Vs&currency=EUR&language=en-GB') 
   
   .get(commonObjects.howToPlayButton)
   .click()
@@ -21,27 +19,6 @@ beforeEach(() => {
 })
 
 //Functions
-let betConfirmation = () => {
-  cy
-  .get(commonObjects.confirmingBetScreen)
-  .should('be.visible')
-  .get(commonObjects.betConfirmingText)
-  .contains('Confirming bet...')
-  .get(commonObjects.confirmationSpinner)
-  .should('be.visible')
-  .get(commonObjects.betAcceptedContainer)
-  .should('be.visible')
-  .get(commonObjects.betAcceptedIcon)
-  .should('be.visible')
-  .get(commonObjects.betAcceptedText)
-  .contains('Bet Accepted')
-
-  //verifying if the elements disappeared
-  .get(commonObjects.confirmingBetScreen)
-  .should('not.be.visible')
-  .get(commonObjects.betAcceptedContainer)
-  .should('not.be.visible')
-}
 
 let addAllTokens = () => {
   cy
@@ -75,12 +52,6 @@ let tryToPlaceBet = () => {
   .click()
 }
 
-//User can only bet if the BUST text is on game screen
-let waitUntilBettingPauses = () => {
-  cy
-  .get(betObjects.betPausedContainer, { timeout: 120000 })
-}
-
 let gameStarted = () => {
   cy
   .get(commonObjects.nextRoundTimerText, { timeout: 120000 })
@@ -109,48 +80,32 @@ let generateRandomIntInRange = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-let selectRandomDigit = () => {
-  const num = generateRandomIntInRange(0,9)
-    cy.get(numpadObjects.numpadRow)
-    .eq(num)
-    .click()
-}
 
 let inputAutobetRandomMultiplier = () => {
-  selectRandomDigit()
+    let randomMultiplier = ''; 
 
-  cy
-  .get(numpadObjects.dotNumpad)
-  .click()
-
-  selectRandomDigit()
-  selectRandomDigit()
+    for(let i = 0; i < 4; i++) {
+      const num = generateRandomIntInRange(1,9)
+      if(i == 1) {
+          randomMultiplier += '.';
+      }
+      else {
+          randomMultiplier += num;
+      }
+    }
+    return randomMultiplier;
 }
 
 let eraseAutobetMultiplier = () => {
-  for(let i = 1; i <= 4; i++) {
-    cy
-    .get(numpadObjects.numpadBackspace)
-    .click()
-  }
+  cy
+  .get(betObjects.autoCashoutMultiplierInput)
+  .clear()
 }
 
 let setMininumCashoutValue = () => {
   cy
-    .get(betObjects.autoCashoutMultiplierInactive)
-    .click()
-    .get(numpadObjects.numpadRow)
-    .eq(0)
-    .click()
-    .get(numpadObjects.dotNumpad)
-    .click()
-    .get(numpadObjects.numPadZero)
-    .click()
-    .get(numpadObjects.numpadRow)
-    .eq(0)
-    .click()
-    .get(numpadObjects.confirmButtonNumpad)
-    .click()
+    .get(betObjects.autoCashoutMultiplierInput)
+    .type('1.01')
 } 
 
 let setMaximumAutobetValue = () => {
@@ -161,7 +116,7 @@ let setMaximumAutobetValue = () => {
 
 
 //Proper Tests
-describe('Testing Bets', () => {
+describe('Testing Desktop Bets', () => {
   
   it('should verify all elements in a complete round without betting', () => {
     //***** BETTING PHASE ******//
@@ -242,12 +197,10 @@ describe('Testing Bets', () => {
 
     //should place a simple bet
     addAllTokens()
-    addAllTokens()
-    addAllTokens()
-    addAllTokens()
+    
     cy
     .get(betObjects.stake)
-    .should('have.text', '€344,00')
+    .should('have.text', '€86,00')
     waitUntilUserCanBet()
     setMininumCashoutValue()
     setMaximumAutobetValue()
@@ -273,36 +226,18 @@ describe('Testing Bets', () => {
     .get(commonObjects.multiplier)
     .should('be.visible')
 
-    //should not display the bet tab when a bet was placed and the game is running
-    cy
-    .get(commonObjects.betTabContainer)
-    .should('not.be.visible')
-    .get(commonObjects.historyTabContainer)
-    .should('not.be.visible')
-    .get(commonObjects.playersTabContainer)
-    .should('not.be.visible')
-
-    //should display current stake and last game bets after betting
-    cy
-    .get(betObjects.betSummary)
-    .should('be.visible')
-    .get(betObjects.betSummaryStake)
-    .contains('€430,00')
-    .get(betObjects.betSummaryLastStake)
-    .should('be.visible')
-
     //should cash out the bet and verify winning elements
     cy.get(commonObjects.lastWinTitle, { timeout: 120000 })
     cy
     .get(commonObjects.lastWinValue)
-    .should('have.text', '€4,30')
+    .should('have.text', '€1,72')
 
     //***** BUST PHASE ******//
     cy.get(commonObjects.autobetTimerText, { timeout: 120000 })
     
     //should return the stake to a previous state after a complete round
     .get(betObjects.stake)
-    .should('have.text', '€430,00')
+    .should('have.text', '€172,00')
     .get(betObjects.clearStake)
     .click()
     .get(betObjects.stake)
@@ -375,77 +310,54 @@ describe('Testing Bets', () => {
 
   it('should modify an auto cashout value', () => {
     //***** BETTING PHASE ******//
+    const multiplier1 = inputAutobetRandomMultiplier()
     waitUntilUserCanBetOnNewRound()
 
     cy
-    .get(betObjects.autoCashoutMultiplierInactive)
+    .get(betObjects.autoCashoutMultiplierInput)
+    .type(multiplier1)
+    .get(betObjects.autobetTitleInactive)
     .click()
-    
-    //verify elements in numpad wrapper
-    cy
-    .get(numpadObjects.numpadWrapper)
-    .should('be.visible')
-    .get(numpadObjects.confirmButtonNumpad)
-    .should('be.visible')
-    .get(numpadObjects.closeButtonNumpad)
-    .should('be.visible')
 
-    
-    //Select random number and verifies that it was correctly confirmed
-    inputAutobetRandomMultiplier()
-
-    cy
-    .get(numpadObjects.multiplier).then(mult => {
-      const chosenMultiplier = mult.text()
-      cy
-      .get(numpadObjects.confirmButtonNumpad)
-      .click()
-
-      .get(betObjects.autoCashoutMultiplierActive)
-      .should('have.text', chosenMultiplier + ' x')
-    })
+    .get(betObjects.autoCashoutMultiplierInput)
+    .invoke('attr', 'value')
+    .should('contain', multiplier1 + 'x')
   
     //Select random number, change it to another and verify confirmation
-    cy
-    .get(betObjects.autoCashoutMultiplierActive)
-    .click()
 
     eraseAutobetMultiplier()
 
-    inputAutobetRandomMultiplier()
+    const multiplier2 = inputAutobetRandomMultiplier()
 
     cy
-    .get(numpadObjects.multiplier).then(mult => {
-      const chosenMultiplier = mult.text()
-      cy
-      .get(numpadObjects.confirmButtonNumpad)
-      .click()
+    .get(betObjects.autoCashoutMultiplierInput)
+    .type(multiplier2)
+    .get(betObjects.autobetTitleInactive)
+    .click()
 
-      .get(betObjects.autoCashoutMultiplierActive)
-      .should('have.text', chosenMultiplier + ' x')
-    })
+    .get(betObjects.autoCashoutMultiplierInput)
+    .invoke('attr', 'value')
+    .should('contain', multiplier2 + 'x')
   
     //Disable autobet
     cy
-    .get(betObjects.autoCashoutMultiplierActive)
-    .should('be.visible')
-    .get(betObjects.autoCachoutTitleActive)
+    .get(betObjects.autoCashoutTitleActive)
     .should('be.visible')
     .get(betObjects.autoCashoutToggleActive)
     .should('be.visible')
     .click()
 
     cy
-    .get(betObjects.autoCashoutMultiplierInactive)
+    .get(betObjects.autoCashoutMultiplierInput)
     .should('be.visible')
-    .get(betObjects.autoCachoutTitleInactive)
+    .get(betObjects.autoCashoutTitleInactive)
     .should('be.visible')
     .get(betObjects.autoCashoutToggleInactive)
     .should('be.visible')
     .click()
   })
 
-  it('should modify an auto bet value', () => {
+  it.only('should modify an auto bet value', () => {
     waitUntilUserCanBetOnNewRound()
     //choose an autobet number
     const selectNum1 = generateRandomIntInRange(1,10)
@@ -489,44 +401,46 @@ describe('Testing Bets', () => {
     addAllTokens()
     
     cy
-    .get(betObjects.autoCashoutMultiplierInactive)
+    .get(betObjects.autoCashoutMultiplierInput)
     .click()
 
-    inputAutobetRandomMultiplier()
+    const multiplier1 = inputAutobetRandomMultiplier()
+    waitUntilUserCanBetOnNewRound()
 
     cy
-    .get(numpadObjects.multiplier).then(mult => {
-      const chosenMultiplier = mult.text()
+    .get(betObjects.autoCashoutMultiplierInput)
+    .type(multiplier1)
+    .get(betObjects.autobetTitleInactive)
+    .click()
+
+    .get(betObjects.autoCashoutMultiplierInput)
+    .invoke('attr', 'value')
+    .should('contain', multiplier1 + 'x')
+
+    const selectNum1 = generateRandomIntInRange(1,10)
+
+    cy
+    .get(betObjects.autobetRoundsSelect)
+    .select(selectNum1.toString())
+    
+    .get(betObjects.autobetRoundsDisplay).then(autobetNum => {
+      const chosenAutobetNumber = autobetNum.text()
+
+      waitUntilUserCanBet()
+      betAndConfirm()
+
+      //***** BETS CLOSED PHASE ******//
+      cy.get(commonObjects.nextRoundTimerText, { timeout: 120000 })
+
+      //***** GAME PHASE ******//
+      gameStarted()
+
       cy
-      .get(numpadObjects.confirmButtonNumpad)
-      .click()
+      .get(commonObjects.autoCashoutGameValue)
+      .should('have.text', multiplier1 + 'x')
 
-      const selectNum1 = generateRandomIntInRange(1,10)
-      cy
-      .get(betObjects.autobetRoundsSelect)
-      .select(selectNum1.toString())
-      
-      
-      .get(betObjects.autobetRoundsDisplay).then(autobetNum => {
-        const chosenAutobetNumber = autobetNum.text()
-
-        waitUntilUserCanBet()
-        betAndConfirm()
-
-        //***** BETS CLOSED PHASE ******//
-        cy.get(commonObjects.nextRoundTimerText, { timeout: 120000 })
-
-        //***** GAME PHASE ******//
-        gameStarted()
-
-        cy
-        .get(commonObjects.autoCashoutGameValue)
-        .should('have.text', chosenMultiplier + 'x')
-
-        .get(commonObjects.autoBetGameValue)
-        .should('have.text', chosenAutobetNumber)
-      })
-      
+      .get(commonObjects.autoBetGameValue)
+      .should('have.text', chosenAutobetNumber)
     })
     //***** BUST PHASE ******//    
   })
@@ -574,5 +488,75 @@ describe('Testing Bets', () => {
 
     })
   })
+
+  it('should verify that the bets are locked after confirming a bet', () => {
+    //***** BETTING PHASE ******//
+    waitUntilUserCanBetOnNewRound()
+
+    //should place a simple bet
+    addAllTokens()
+
+    tryToPlaceBet()
+
+    cy
+    .get(betObjects.lockedBetsScreen)
+    .should('not.be.visible')
+    cy
+    .get(betObjects.lockedBetsScreen)
+    .should('be.visible')
+    cy
+    .get(betObjects.lockedBets)
+    .should('be.visible')
+  })
+
+  it.only('should verify option elements', () => {
+    //***** BETTING PHASE ******//
+    waitUntilUserCanBetOnNewRound()
+
+    //should place a simple bet
+    addAllTokens()
+
+    tryToPlaceBet()
+
+    cy
+    .get(betObjects.lockedBetsScreen)
+    .should('not.be.visible')
+    cy
+    .get(betObjects.lockedBetsScreen)
+    .should('be.visible')
+    cy
+    .get(betObjects.lockedBets)
+    .should('be.visible')
+
+    .get(commonObjects.rulesInfo)
+    .click()
+    .get(commonObjects.rulesInfoWrapper)
+    .should('be.visible')
+    .get(commonObjects.rulesInfoWrapperCloseBtn)
+    .click()
+    .get(commonObjects.rulesInfoWrapper)
+    .should('not.be.visible')
+    .get(commonObjects.rulesInfoWrapperCloseBtn)
+    .should('not.be.visible')
+
+    .get(commonObjects.faqBtn)
+    .click()
+    .get(commonObjects.faqWrapper)
+    .should('be.visible')
+    .get(commonObjects.faqCloseBtn)
+    .click()
+    .get(commonObjects.faqWrapper)
+    .should('not.be.visible')
+    .get(commonObjects.faqCloseBtn)
+    .should('not.be.visible')
+
+    .get(commonObjects.howToPlayBtn)
+    .click()
+    .get(commonObjects.howToPlayButton)
+    .click()
+    .get(commonObjects.howToPlaySkipButton)
+    .click()
+  })
+
 })
 
