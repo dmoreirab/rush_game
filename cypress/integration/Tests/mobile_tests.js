@@ -538,5 +538,90 @@ describe('Testing Mobile Bets', () => {
 
     })
   })
+
+  it.only('should verify option elements', () => {
+
+    cy
+    .get(commonObjects.burguerMenu)
+    .click()
+    
+    .get(commonObjects.navMenuOverlay)
+    .should('be.visible')
+    .get(commonObjects.navMenuLogo)
+    .should('be.visible')
+    .get(commonObjects.navMenuCopyright)
+    .should('be.visible')
+    .get(commonObjects.navLinks).eq(0)
+    .click()
+
+    .get(commonObjects.rulesInfoWrapper)
+    .should('be.visible')
+    .get(commonObjects.rulesInfoWrapperCloseBtn)
+    .click()
+    .get(commonObjects.rulesInfoWrapper)
+    .should('not.be.visible')
+    .get(commonObjects.rulesInfoWrapperCloseBtn)
+    .should('not.be.visible')
+
+    .get(commonObjects.burguerMenu)
+    .click()
+
+    .get(commonObjects.navLinks).eq(2)
+    .click()
+
+    .get(commonObjects.faqWrapper)
+    .should('be.visible')
+    .get(commonObjects.faqCloseBtn)
+    .click()
+    .get(commonObjects.faqWrapper)
+    .should('not.be.visible')
+    .get(commonObjects.faqCloseBtn)
+    .should('not.be.visible')
+
+    .get(commonObjects.burguerMenu)
+    .click()
+
+    .get(commonObjects.navLinks).eq(1)
+    .click()
+    .get(commonObjects.howToPlayButton)
+    .click()
+    .get(commonObjects.howToPlayScreen1)
+    .should('be.visible')
+    .get(commonObjects.howToPlayNextBtn)
+    .click()
+    .get(commonObjects.howToPlayScreen1)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen2)
+    .should('be.visible')
+    .get(commonObjects.howToPlayNextBtn)
+    .click()
+    .get(commonObjects.howToPlayScreen2)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen3)
+    .should('be.visible')
+    .get(commonObjects.howToPlayCloseBtn)
+    .click()
+    .get(commonObjects.howToPlayNextBtn)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen3)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayCloseBtn)
+    .should('not.be.visible')
+    
+    //#ADD_DATA_TESTS
+    /*
+    .get(commonObjects.burguerMenu)
+    .click()
+
+    .get(commonObjects.soundToggleOn)
+    .click()
+    .get(commonObjects.soundToggleOn)
+    .should('not.be.visible')
+    .get(commonObjects.soundToggleOff)
+    .click()
+    .get(commonObjects.soundToggleOff)
+    .should('not.be.visible')
+    */
+  })
 })
 

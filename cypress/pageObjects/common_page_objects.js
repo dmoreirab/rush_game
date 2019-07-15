@@ -59,7 +59,22 @@ const CommonObjects = function ()  {
     this.faqWrapper = '[data-test="faq-wrapper"]';
     this.faqCloseBtn = '[data-test="faq-close-button"]';
     this.howToPlayBtn = '[data-test="how-to-play-icon"]';
-
+    this.howToPlayNextBtn = '[data-test="onboarding-next-button"]';
+    this.howToPlayCloseBtn = '[data-test="onboarding-close-button"]';
+    this.howToPlayScreen1 = '[data-test="onboarding-step-container-1"]';
+    this.howToPlayScreen2 = '[data-test="onboarding-step-container-2"]';
+    this.howToPlayScreen3 = '[data-test="onboarding-step-container-3"]';
+    this.soundIcon = '[data-test="sound-icon"]';
+    this.soundStateUnmuted = '[data-tip="Mute"]';
+    this.soundStateMuted = '[data-tip="Unmute"]';
+    this.burguerMenu = '[data-test="hamburger-menu"]';
+    this.navMenuOverlay = '[data-test="nav-menu-overlay"]';
+    this.navMenuLogo = '[data-test="nav-menu-logo"]';
+    this.naveMenu = '[data-test="nav-menu"]';
+    this.navMenuCopyright = '[data-test="nav-menu-copyright"]';
+    this.navLinks = '[data-test="nav-link"]';
+    this.soundToggleOn = '#root > main > div > section.sc-jhAzac.flNcYD > nav > a:nth-child(5) > div > label';
+    this.soundToggleOff = '#root > main > div > section.sc-jhAzac.flNcYD > nav > a:nth-child(5) > div > label';
 };
 
 module.exports = CommonObjects;

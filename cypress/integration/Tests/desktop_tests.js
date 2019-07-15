@@ -509,7 +509,7 @@ describe('Testing Desktop Bets', () => {
     .should('be.visible')
   })
 
-  it.only('should verify option elements', () => {
+  it('should verify if the bet screen is locked after betting', () => {
     //***** BETTING PHASE ******//
     waitUntilUserCanBetOnNewRound()
 
@@ -527,7 +527,11 @@ describe('Testing Desktop Bets', () => {
     cy
     .get(betObjects.lockedBets)
     .should('be.visible')
+  })
 
+  it('should verify option elements', () => {
+    
+    cy
     .get(commonObjects.rulesInfo)
     .click()
     .get(commonObjects.rulesInfoWrapper)
@@ -554,8 +558,40 @@ describe('Testing Desktop Bets', () => {
     .click()
     .get(commonObjects.howToPlayButton)
     .click()
-    .get(commonObjects.howToPlaySkipButton)
+    .get(commonObjects.howToPlayScreen1)
+    .should('be.visible')
+    .get(commonObjects.howToPlayNextBtn)
     .click()
+    .get(commonObjects.howToPlayScreen1)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen2)
+    .should('be.visible')
+    .get(commonObjects.howToPlayNextBtn)
+    .click()
+    .get(commonObjects.howToPlayScreen2)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen3)
+    .should('be.visible')
+    .get(commonObjects.howToPlayCloseBtn)
+    .click()
+    .get(commonObjects.howToPlayNextBtn)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayScreen3)
+    .should('not.be.visible')
+    .get(commonObjects.howToPlayCloseBtn)
+    .should('not.be.visible')
+    .get(commonObjects.soundStateUnmuted)
+    .should('be.visible')
+    .click()
+    .get(commonObjects.soundStateUnmuted)
+    .should('not.be.visible')
+    .get(commonObjects.soundStateMuted)
+    .should('be.visible')
+    .click()
+    .get(commonObjects.soundStateMuted)
+    .should('not.be.visible')
+    .get(commonObjects.soundStateUnmuted)
+    .should('be.visible')
   })
 
 })
